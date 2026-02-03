@@ -1,5 +1,5 @@
-from guess_word import def_guess_word
-from tic_tac_toe import def_tic_tac_toe
+from guess_word import guess_word
+from tic_tac_toe import tic_tac_toe
 
 import time
 while True:
@@ -17,9 +17,9 @@ while True:
 
     choice = input('Выберите игру(1-3): ').strip()
     if choice == '1':
-        def_guess_word()
+        guess_word()
     if choice == '2':
-        def_tic_tac_toe()
+        tic_tac_toe()
     elif choice == '0':
         print('Спаcибо за игру! До встречи!')
         time.sleep(1)

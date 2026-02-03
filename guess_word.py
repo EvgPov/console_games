@@ -1,5 +1,5 @@
 import random
-def def_guess_word():
+def guess_word():
     # список слов
     words = [
         'массив',
