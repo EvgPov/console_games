@@ -30,7 +30,7 @@ def guess_word():
     #  максимальное количество попыток
     max_attempts = 7
     attempts = max_attempts
-    # угаданные буквы
+    # названные буквы
     guessed_letters = set()
     # текущее отображение слова
     display = ['_']* len(secret_word)
@@ -56,7 +56,7 @@ def guess_word():
             continue
 
         if letter in guessed_letters:
-            print('Ты уже называл эту букву')
+            print('Вы уже называли эту букву')
             continue
 
         # запонимаем букву

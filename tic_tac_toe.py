@@ -135,6 +135,7 @@ def play_game(two_players=True):
 def tic_tac_toe():
     # меню
     while True:
+        print('\nДобро пожаловать в игру "КРЕСТИКИ-НОЛИКИ"')
         print('\n' + '=' * 45)
         print('КРЕСТИКИ-НОЛИКИ'.center(45))
         print('=' * 45)

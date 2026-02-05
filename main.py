@@ -1,5 +1,6 @@
 from guess_word import guess_word
 from tic_tac_toe import tic_tac_toe
+from snake import snake
 
 import time
 while True:
@@ -18,8 +19,10 @@ while True:
     choice = input('Выберите игру(1-3): ').strip()
     if choice == '1':
         guess_word()
-    if choice == '2':
+    elif choice == '2':
         tic_tac_toe()
+    elif choice == '3':
+        snake()
     elif choice == '0':
         print('Спаcибо за игру! До встречи!')
         time.sleep(1)
