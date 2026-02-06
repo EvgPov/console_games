@@ -1,9 +1,12 @@
 from guess_word import guess_word
 from tic_tac_toe import tic_tac_toe
 from snake import snake
+from clear_screen import clear_screen
 
 import time
+
 while True:
+    clear_screen()  # очищаем экран
     print("\n" + "═" * 45)
     print("КОНСОЛЬНЫЕ ИГРЫ".center(45))
     print("═" * 45)

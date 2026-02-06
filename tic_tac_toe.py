@@ -1,5 +1,6 @@
 import time
 import random
+from clear_screen import clear_screen
 
 NUMBERS = [
         ['1', '2', '3'],
@@ -95,7 +96,7 @@ def play_game(two_players=True):
     board = [row[:] for row in NUMBERS] # копируем поле с номерами
 
     current_player = 'O' # первый ход - нолик
-
+    clear_screen()  # очищаем экран
     print('КРЕСТИКИ-НОЛИКИ')
     print('Игрок 1: 0 (нолик) - ходит первым')
     print('Игрок 2: X (крестик)' if two_players else 'Компьютер: X (крестик)')
@@ -121,24 +122,30 @@ def play_game(two_players=True):
             print(f'Компьютер выбрал: {pos}')
     # проверка победы
         if check_winner(board, current_player):
+            clear_screen()  # очищаем экран
             print_board(board)
             print(f" {'Игрок 1' if current_player == 'O' else 'Игрок 2' if two_players else 'Компьютер'} Победил!")
+            time.sleep(1)
             return
     # проверка ничьи
         if is_board_full(board):
+            clear_screen()  # очищаем экран
             print_board(board)
-            print('Ничья!')
+            print('НИЧЬЯ!')
+            time.sleep(1)
             return
     #  смена игрока
         current_player = 'X' if current_player == 'O' else 'O'
+        clear_screen()  # очищаем экран
 
 def tic_tac_toe():
     # меню
     while True:
+        clear_screen()  # очищаем экран
         print('\nДобро пожаловать в игру "КРЕСТИКИ-НОЛИКИ"')
-        print('\n' + '=' * 45)
+        print('\n' + '═' * 45)
         print('КРЕСТИКИ-НОЛИКИ'.center(45))
-        print('=' * 45)
+        print('═' * 45)
         print('1. Игра вдвоем')
         print('2. Игра против компьютера')
         print('0. Выход')

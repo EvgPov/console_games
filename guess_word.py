@@ -1,4 +1,8 @@
 import random
+import time
+
+from clear_screen import clear_screen
+
 def guess_word():
     # список слов
     words = [
@@ -35,7 +39,11 @@ def guess_word():
     # текущее отображение слова
     display = ['_']* len(secret_word)
 
+    clear_screen()  # очищаем экран
     print('\nДобро пожаловать в игру "Угадай слово"')
+    print('\n' + '═' * 45)
+    print('УГАДАЙ СЛОВО'.center(45))
+    print('═' * 45)
     print('У Вас есть', max_attempts, 'попыток')
     print('Слово состоит из', len(secret_word), 'букв\n')
 
@@ -72,10 +80,11 @@ def guess_word():
         else:
             print('Этой буквы нет в слове!')
             attempts -= 1
-    print('\n' + '-' * 45)
+    print('\n' + '═' * 45)
     if '_' not in display:
-        print('Победа! Вы угадали слово:', secret_word.upper())
+        print(f"Победа! Вы угадали слово: {secret_word.upper()}".center(45))
     else:
-        print('Попытки закончились')
-        print('Загаданное слово было: ', secret_word.upper())
-    print('\n' + '-' * 45)
+        print('Попытки закончились'.center(45))
+        print(f"Загаданное слово было: {secret_word.upper()}".center(45))
+    print('═' * 45)
+    time.sleep(1.5)

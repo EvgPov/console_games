@@ -1,13 +1,11 @@
 import random
 import sys
-import os
+import time
+
+from clear_screen import clear_screen
 
 # размер игрового поля
 SIZE = 15
-
-def clear_screen():
-    # очищает консоль
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 # генерирует новую еду в местах, где нет змейки
 def get_food(snake):
@@ -41,6 +39,7 @@ def is_valid_position(pos):
     return 0 <= r < SIZE and 0 <= c < SIZE
 
 def snake():
+    clear_screen()  # очищаем экран
     # змейка размером 1 в центре поля
     snake = [(SIZE // 2, SIZE // 2)] # координаты [7, 7]
     direction = (0, 1) # начальное направление вправо
@@ -54,8 +53,8 @@ def snake():
         'd': (0, 1) # right
     }
     print('\nДобро пожаловать в игру "Змейка" (15 X 15)')
-    print ('Управление: w (вверх), a (влево), s (вниз), d (право)')
-    print('q - выход из игры')
+    # print ('Управление: w (вверх), a (влево), s (вниз), d (право)')
+    # print('q - выход из игры')
     print('Нажмите Enter для начала')
     input()
 
@@ -70,6 +69,7 @@ def snake():
         if key == 'q':
             print("Игра окончена")
             print(f"Финальный счет: {score}")
+            time.sleep(1)
             break
         if key in directions: # если нажата w/a/s/d, то пытаемся изменить напрвление
             new_direction = directions[key]
@@ -83,11 +83,13 @@ def snake():
         if not is_valid_position(new_head):
             print('\nВврезался в стену')
             print(f'Финальный счет: {score}')
+            time.sleep(1)
             break
         # проверка на столкновение с собой
         if new_head in snake:
             print('\nВрезался в себя!')
             print(f'Финальный счет: {score}')
+            time.sleep(1)
             break
         # добавляем новую голову
         snake.append(new_head)
